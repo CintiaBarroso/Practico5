@@ -132,3 +132,11 @@ public class GestorProducto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un nombre de producto válido.");
             return;
         }
+        String precioProductoStr = JOptionPane.showInputDialog(this, "Ingrese el precio del producto:");
+        double precioProducto;
+        try {
+            precioProducto = Double.parseDouble(precioProductoStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un precio válido.");
+            return;
+        }
