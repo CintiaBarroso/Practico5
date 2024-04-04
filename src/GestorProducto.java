@@ -1,6 +1,7 @@
 
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class GestorProducto extends javax.swing.JFrame {
@@ -140,3 +141,11 @@ public class GestorProducto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un precio válido.");
             return;
         }
+        // Agregar el producto a la tabla
+        DefaultTableModel model = (DefaultTableModel) MuestraDeProducto.getModel();
+        model.addRow(new Object[]{nombreProducto, precioProducto, categoria});
+        // Limpiar los campos de texto
+    SelectorCategoria.setSelectedIndex(0);
+    }
+    
+}
