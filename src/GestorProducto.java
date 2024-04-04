@@ -1,4 +1,8 @@
 
+import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
+
+
 public class GestorProducto extends javax.swing.JFrame {
 
     /**
@@ -112,4 +116,19 @@ public class GestorProducto extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> SelectorCategoria;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-}
+
+
+// Método para manejar el evento de agregar producto
+    
+    void agregarProductoActionPerformed(ActionEvent evt) {
+        String categoria = (String) SelectorCategoria.getSelectedItem();
+        if (categoria.equals("Seleccione Categoria De Producto")) {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione una categoría de producto.");
+            return;
+        }
+        // Obtener el nombre y el precio del producto ingresado por el usuario
+        String nombreProducto = JOptionPane.showInputDialog(this, "Ingrese el nombre del producto:");
+        if (nombreProducto == null || nombreProducto.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un nombre de producto válido.");
+            return;
+        }
